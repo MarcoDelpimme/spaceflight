@@ -1,6 +1,6 @@
-import { Card, Container, ListGroup } from "react-bootstrap";
+import { Button, Card, Container, Row } from "react-bootstrap";
 import { Result } from "../interfaces/Articles";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const ArticleDetailsOK = function () {
@@ -32,23 +32,20 @@ const ArticleDetailsOK = function () {
 
   return (
     details && (
-      <Container>
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={details.image_url} />
-          <Card.Body>
-            <Card.Title>{details.image_url}</Card.Title>
-            <Card.Text>{details.summary}</Card.Text>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-            <ListGroup.Item>Cras justo odio</ListGroup.Item>
-            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-          </ListGroup>
-          <Card.Body>
-            <Card.Link href="#">Card Link</Card.Link>
-            <Card.Link href="#">Another Link</Card.Link>
-          </Card.Body>
-        </Card>
+      <Container fluid>
+        <Row>
+          <div className="col">
+            <img src={details.image_url} className="img-fluid" alt="Hero" />
+            <div className="mt-4">
+              <h2>{details.title}</h2>
+              <p>{details.summary}</p>
+              <p>Publish at {details.published_at.toString()}</p>
+            </div>
+            <Link to="/">
+              <Button>HOME</Button>
+            </Link>
+          </div>
+        </Row>
       </Container>
     )
   );
