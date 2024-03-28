@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Data, Result } from "../interfaces/Articles";
-import { Carousel } from "react-bootstrap";
+import { Carousel, CarouselItem } from "react-bootstrap";
 import Article from "./Article";
 
 const FetchComponent = function () {
@@ -27,9 +27,11 @@ const FetchComponent = function () {
   }, []);
 
   return (
-    <Carousel>
-      {articles.map((a) => (
-        <Article articleDetail={a} key={a.id}></Article>
+    <Carousel id="carousel">
+      {articles.slice(0, 5).map((a) => (
+        <CarouselItem key={a.id}>
+          <Article articleDetail={a}></Article>
+        </CarouselItem>
       ))}
     </Carousel>
   );

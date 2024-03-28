@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  object-fit: cover;
+  width: 100%;
+}
+
+#carouselCap {
+  background-color: rgba(255, 255, 255, 0.892);
+  border-radius: 30px;
+  color: black;
+}
